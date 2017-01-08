@@ -9,7 +9,7 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
-        HelloWorld helloWorld = context.getBean( "helloWorld", HelloWorld.class);
-        helloWorld.sayHello();
+        SetterBasedService service = context.getBean(SetterBasedService.class);
+        service.getMessage();
     }
 }
