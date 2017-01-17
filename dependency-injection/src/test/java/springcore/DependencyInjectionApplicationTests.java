@@ -1,4 +1,4 @@
-package com.springcore;
+package springcore;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
