@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="greetingController" class="com.example.controllers.GreetingController">
+        <property name="defaultService" ref="defaultService"/>
+        <property name = "frenchService" ref="frenchService"/>
+        <property name = "germanService" ref="germanService"/>
+        <property name = "russianService" ref="russianService"/>
+    </bean>
+
+    <bean id="helloWorldFactory" class="com.example.services.HelloWorldFactory"/>
+
+    <bean id="defaultService" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="en"/>
+    </bean>
+
+    <bean id="frenchService" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="fr"/>
+    </bean>
+
+    <bean id="germanService" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="de"/>
+    </bean>
+
+    <bean id="russianService" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="ru"/>
+    </bean>
+
+</beans>
